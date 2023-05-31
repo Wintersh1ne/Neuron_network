@@ -89,6 +89,20 @@ class OurNeuralNetwork:
         o1 = sigmoid(self.w5 * h1 + self.w6 * h2 + self.b3)
         return o1
 
+
+
+
+    '''
+    переписать train()
+    
+    def train(self, data, all_y_trues, epos):
+        learn_rate = 0.1
+        epochs = epos  # количество циклов во всём наборе данных
+    
+    
+    
+    '''
+
     def train(self, data, all_y_trues):
         """
         - data is a (n x 2) numpy array, n = # of samples in the dataset.
