@@ -29,46 +29,6 @@ class OurNeuralNetwork:
 
     def __init__(self):
         # Вес
-        '''
-        #my code
-        Переписываю под более универсальный случай, 
-        +++ уже переписанное (без проверки) 
-        --- ещё не переписанное 
-    def __init__(self, w_count, b_count):
-
-        +++
-        self.w = []
-        for i in range(0, w_count):
-            self.w.append(np.random.normal())
-
-        +++
-        self.b = []
-        for i in range(0, b_count):
-            self.b.append(np.random.normal())
-
-
-
-    def feedforward(self, x):
-        +++
-        h = []
-        i = 0
-        k = 0
-        while (j < w_count - len(x)):
-            for i in range(0, len(x)):
-                a += self.w[j + i] * x[i]
-            h.append(sigmoid(a + self.b[k]))
-            k += 1
-            i += len(x)
-
-        +++
-        a = 0
-        for i in range(0, b_count - 1):
-            a += self.w[w_count - b_count - 1 + i] * h[i]
-        o = sigmoid(a + self.b[-1])
-        return o
-
-        #my code
-        '''
 
         self.w1 = np.random.normal()
         self.w2 = np.random.normal()
@@ -88,20 +48,6 @@ class OurNeuralNetwork:
         h2 = sigmoid(self.w3 * x[0] + self.w4 * x[1] + self.b2)
         o1 = sigmoid(self.w5 * h1 + self.w6 * h2 + self.b3)
         return o1
-
-
-
-
-    '''
-    переписать train()
-    
-    def train(self, data, all_y_trues, epos):
-        learn_rate = 0.1
-        epochs = epos  # количество циклов во всём наборе данных
-    
-    
-    
-    '''
 
     def train(self, data, all_y_trues):
         """
