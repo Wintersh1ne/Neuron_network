@@ -52,11 +52,12 @@ class OurNeuralNetwork:
         return o
 
     def train(self, data, all_y_trues):
-        learn_rate = 0.5
+        learn_rate = 0.1
         epochs = 10000
 
         for epoch in range(epochs):
             for x, y_true in zip(data, all_y_trues):
+                # --- Выполняем обратную связь (нам понадобятся эти значения в дальнейшем)
 
                 sums = [0] * len(self.b)
                 for i in range(0, len(self.b) - 1):
@@ -92,7 +93,7 @@ class OurNeuralNetwork:
                     self.d_ypred_d_w[i] = (self.h[i] * deriv_sigmoid(sums[-1]))
 
                 j = 0
-                for i in range(self.w_count - self.w_count_in, self.w_count):
+                for i in range(self.w_count - len(self.b) + 1, self.w_count):
                     self.d_ypred_d_h[j] = (self.w[i] * deriv_sigmoid(sums[-1]))
                     j += 1
 
@@ -109,7 +110,7 @@ class OurNeuralNetwork:
                     c += 1
 
                 j = 0
-                for i in range(self.w_count - self.w_count_in, self.w_count):
+                for i in range(self.w_count - len(self.b) + 1, self.w_count):
                     self.w[i] -= learn_rate * d_L_d_ypred * self.d_ypred_d_w[j]
                     j += 1
                 self.b[-1] -= learn_rate * d_L_d_ypred * d_ypred_d_b
@@ -136,8 +137,10 @@ all_y_trues = np.array([
     1,  # Diana
 ])
 
-# Тренируем нейронную сеть
+# Тренируем нашу нейронную сеть!
 network = OurNeuralNetwork(2, 3)
+for x, y_trues in zip(data, all_y_trues):
+    print(f"x: {x} | \t y_trues: {y_trues}")
 network.train(data, all_y_trues)
 
 emily = np.array([-7, -3])
