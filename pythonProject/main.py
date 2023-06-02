@@ -139,8 +139,6 @@ all_y_trues = np.array([
 
 # Тренируем нашу нейронную сеть!
 network = OurNeuralNetwork(2, 3)
-for x, y_trues in zip(data, all_y_trues):
-    print(f"x: {x} | \t y_trues: {y_trues}")
 network.train(data, all_y_trues)
 
 emily = np.array([-7, -3])
