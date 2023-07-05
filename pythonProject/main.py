@@ -145,3 +145,4 @@ emily = np.array([-7, -3])
 frank = np.array([20, 2])
 print("Emily: %.9f" % network.feedforward(emily))  # 0.951 - F
 print("Frank: %.9f" % network.feedforward(frank))  # 0.039 - M
+input("Press any key to exit...")
